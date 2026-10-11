@@ -1,0 +1,11 @@
+# Cloudflare Pages SPA fallback
+# Every /s/<qrcode> URL serves index.html — the webapp reads the QR from the URL on load.
+/s/*  /index.html  200
+
+# Partners page
+/parceiros  /parceiros.html  200
+/partners   /parceiros.html  200
+/socios     /parceiros.html  200
+
+# Bare domain → root
+/     /index.html  200
