@@ -63,6 +63,29 @@ footer{padding:0 0 32px;display:flex;justify-content:space-between;flex-wrap:wra
 @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 section,.contact{animation:riseIn .9s cubic-bezier(.22,.8,.2,1) 1.6s both}
 @media (prefers-reduced-motion:reduce){.hero::after,.hero .mono,.hero h1,.hero .lead,section,.contact{animation:none}.hero::after{opacity:0}}
+
+@media (max-width:640px){
+.wrap{padding:0 16px}
+header{padding:14px 0}
+.brand{font-size:15px}.bolt{width:26px;height:26px}
+.hero{border-radius:18px;padding:120px 18px 24px;min-height:0;background:linear-gradient(180deg,rgba(13,13,11,.15) 0%,rgba(13,13,11,.75) 45%,#0d0d0b 85%),url("assets/goat-welcome.jpg") center 20%/cover no-repeat,#0d0d0b!important}
+h1{font-size:32px;margin:10px 0 10px}
+.lead{font-size:15px}
+section{padding:32px 0 0}
+h2{font-size:22px;margin-bottom:14px}
+.plans{grid-template-columns:1fr;gap:12px}
+.plan{padding:18px;border-radius:16px;gap:12px}
+.price{font-size:36px}
+li{font-size:14.5px}
+.perks{grid-template-columns:1fr 1fr;gap:10px}
+.perk{padding:14px}
+.perk b{font-size:14px}.perk span{font-size:12.5px}
+.contact{margin:32px 0 28px;padding:20px 18px;border-radius:18px;flex-direction:column;align-items:stretch}
+.btns{flex-direction:column}
+.btn{justify-content:center;width:100%;min-height:52px}
+footer{flex-direction:column;align-items:center;text-align:center}
+}
+@media (max-width:360px){.perks{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
