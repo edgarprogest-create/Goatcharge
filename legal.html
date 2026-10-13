@@ -39,7 +39,7 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
 </head>
 <body>
 <div class="bar"><div class="in">
-<a class="back" href="/">← GoatCharge</a>
+<a class="back" id="back" href="/s/1644825216">← GoatCharge</a>
 <nav class="tabs"><a href="#termos">Termos</a><a href="#privacidade">Privacidade</a></nav>
 </div></div>
 <div class="wrap">
@@ -149,5 +149,15 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
 </section>
 
 </div>
+<script>
+(function(){
+  var b=document.getElementById('back');
+  var qr=null; try{qr=localStorage.getItem('goat_last_qr')}catch(e){}
+  if(qr&&/^\d+$/.test(qr)) b.href='/s/'+qr;
+  b.addEventListener('click',function(e){
+    try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ e.preventDefault(); history.back(); } }catch(err){}
+  });
+})();
+</script>
 </body>
 </html>
