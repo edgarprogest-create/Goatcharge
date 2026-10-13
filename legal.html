@@ -37,6 +37,9 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
 .upd{margin-top:6px}
 .qr-note{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,255,61,.35);background:rgba(212,255,61,.06);font-size:13.5px;line-height:1.45;color:var(--bone)}
 .qr-note svg{flex-shrink:0;margin-top:1px}
+section.off{display:none}
+section+section{margin-top:0;border-top:0}
+.tabs a.on{color:var(--ink);background:var(--acc);border-color:var(--acc)}
 </style>
 </head>
 <body>
@@ -52,16 +55,9 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
 <h1>Termos e Condições</h1>
 <div class="mono upd">Última atualização: 13 de outubro de 2026</div>
 
-<div class="id">
-<span>Titular</span><span>Edgar Azevedo (empresário em nome individual)</span>
-<span>NIF</span><span>271674385</span>
-<span>Nome comercial</span><span>GoatCharge</span>
-<span>Morada</span><span>Apartado 003517, EC Bonfim, 4300-999 Porto</span>
-<span>Email</span><span><a href="mailto:goatenergypartners@gmail.com">goatenergypartners@gmail.com</a></span>
-</div>
 
 <h2>1. Objeto</h2>
-<p>Estes termos regulam o aluguer de powerbanks nas estações Goat Spaces, através do site goatcharge.com. Ao iniciar um aluguer, o cliente declara que leu e aceita estes termos.</p>
+<p>Estes termos regulam o aluguer de powerbanks nas estações Goat Spaces, através do site goatcharge.com. O serviço é prestado por Edgar Azevedo, empresário em nome individual, NIF 271674385, com o nome comercial GoatCharge e morada em Apartado 003517, EC Bonfim, 4300-999 Porto (contacto: <a href="mailto:goatenergypartners@gmail.com">goatenergypartners@gmail.com</a>). Ao iniciar um aluguer, o cliente declara que leu e aceita estes termos.</p>
 
 <h2>2. Como funciona</h2>
 <ul>
@@ -116,7 +112,7 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
 <div class="mono upd">Última atualização: 13 de outubro de 2026</div>
 
 <h2>1. Responsável pelo tratamento</h2>
-<p>Edgar Azevedo, empresário em nome individual, NIF 271674385, com o nome comercial GoatCharge e morada em Apartado 003517, EC Bonfim, 4300-999 Porto. Contacto: <a href="mailto:goatenergypartners@gmail.com">goatenergypartners@gmail.com</a>.</p>
+<p>O responsável pelo tratamento dos dados é Edgar Azevedo, empresário em nome individual, NIF 271674385, com o nome comercial GoatCharge e morada em Apartado 003517, EC Bonfim, 4300-999 Porto. Contacto: <a href="mailto:goatenergypartners@gmail.com">goatenergypartners@gmail.com</a>.</p>
 
 <h2>2. Dados que tratamos</h2>
 <ul>
@@ -160,6 +156,21 @@ section+section{margin-top:40px;border-top:1px solid var(--line)}
   b.addEventListener('click',function(e){
     try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ e.preventDefault(); history.back(); } }catch(err){}
   });
+})();
+</script>
+<script id="legal-tabs-js">
+(function(){
+  function show(){
+    var id=(location.hash||'').replace('#','')||(/privac/i.test(location.search)?'privacidade':'termos');
+    if(id!=='privacidade') id='termos';
+    document.querySelectorAll('section').forEach(function(s){ s.classList.toggle('off', s.id!==id); });
+    document.querySelectorAll('.tabs a').forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+id); });
+    document.title=(id==='privacidade'?'Política de Privacidade':'Termos e Condições')+' · GoatCharge';
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll('section a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(){ setTimeout(show,0); }); });
+  window.addEventListener('hashchange', show);
+  show();
 })();
 </script>
 </body>
